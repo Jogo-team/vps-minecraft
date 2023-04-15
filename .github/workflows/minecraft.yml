@@ -28,6 +28,9 @@ jobs:
 
       - name: Backup
         run: ./bootstrap.sh private-key setup
+
+      - name: Upload backup
+        uses: actions/upload-artifact@v3
         with:
           name: backup-$NOW
           path: ./backup/${{ secrets.VPS_HOSTNAME }}/home/${{ secrets.VPS_USER }}/*
