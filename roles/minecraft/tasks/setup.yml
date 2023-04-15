@@ -1,0 +1,28 @@
+# Setup server
+---
+- name: archive server files
+  delegate_to: localhost
+  become: false
+  community.general.files.archive:
+    path:
+      - docker-compose.yml
+      - .env
+      - datapacks
+      - modpack
+      - mods
+      - config
+      - worlds
+    dest: server.tgz
+- name: copy server zip to remote
+  ansible.builtin.copy:
+    src: server.tgz
+    dest: "/home/{{ username }}/"
+    owner: "{{ username }}"
+- name: unarchive server
+  ansible.builtin.unarchive:
+    src: "/home/{{ username }}/server.tgz"
+    dest: "/home/{{ username }}/"
+    owner: "{{ username }}"
+    remote_src: yes
+  notify:
+    - restart

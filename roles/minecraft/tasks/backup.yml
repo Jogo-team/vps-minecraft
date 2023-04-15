@@ -1,0 +1,11 @@
+# Backup world by sending a copy to your local machine
+---
+- name: archive world in server
+  community.general.archive:
+    path: "/home/{{ username }}/data/world"
+    format: zip
+    dest: "/home/{{ username }}/{{ ansible_date_time.epoch }}.zip"
+- name: copy world zip to local
+  ansible.builtin.fetch:
+    src: "/home/{{ username }}/{{ ansible_date_time.epoch }}.zip"
+    dest: backups

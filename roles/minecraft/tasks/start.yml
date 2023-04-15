@@ -1,0 +1,7 @@
+# Start server
+---
+- name: run docker-compose to start server
+  community.docker.docker_compose:
+    project_src: "/home/{{ username }}/"
+    build: no
+    state: present

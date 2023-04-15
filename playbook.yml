@@ -1,0 +1,8 @@
+---
+- hosts: minecraft
+  become: false
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+    ansible_user: $VPS_USER
+  roles:
+    - role: minecraft

@@ -1,0 +1,14 @@
+# Minecraft
+/data
+
+.env*
+!.env.example
+
+*.tgz
+!datapacks/*.zip
+
+*.pem
+
+backups/
+
+hosts
