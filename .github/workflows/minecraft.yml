@@ -15,6 +15,7 @@ jobs:
 
     env:
       ANSIBLE_HOST_KEY_CHECKING: False
+      ANSIBLE_CUSTOM_ARGS: -i hosts --private-key ./private-key -e "user=${{ secrets.VPS_USER }}" -vv playbook.yml
 
     steps:
       - name: Checkout repository 
@@ -27,12 +28,12 @@ jobs:
         run: |
           echo "${{ vars.MINECRAFT_CONFIG }}" > .env
           echo "${{ secrets.HOSTS }}" > hosts
-          echo "${{ secrets.HOSTS }}" > private-key
+          echo "${{ secrets.PRIVATE_KEY }}" > private-key
           chmod +x ./bootstrap.sh
           chmod 600 private-key
 
       - name: Backup
-        run: ./bootstrap.sh private-key setup
+        run: ansible-playbook --tags="backup" ${{ env.ANSIBLE_CUSTOM_ARGS }}
 
       - name: Upload backup
         uses: actions/upload-artifact@v3
@@ -41,7 +42,7 @@ jobs:
           path: ./backup/${{ secrets.VPS_HOSTNAME }}/home/${{ secrets.VPS_USER }}/*
       
       - name: Setup
-        run: ./bootstrap.sh private-key setup
+        run: ansible-playbook --tags="setup" ${{ env.ANSIBLE_CUSTOM_ARGS }}
       
       - name: Start
-        run: ./bootstrap.sh private-key start
+        run: ansible-playbook --tags="start" ${{ env.ANSIBLE_CUSTOM_ARGS }}
