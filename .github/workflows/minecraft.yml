@@ -39,7 +39,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: backup-$NOW
-          path: ./backup/${{ secrets.VPS_HOSTNAME }}/home/${{ secrets.VPS_USER }}/*
+          path: backups/${{ secrets.VPS_HOSTNAME }}/home/${{ secrets.VPS_USER }}/*.zip
       
       - name: Setup
         run: ansible-playbook --tags="setup" ${{ env.ANSIBLE_CUSTOM_ARGS }}
