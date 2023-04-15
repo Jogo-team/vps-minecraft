@@ -23,14 +23,14 @@ jobs:
       - name: Get config
         run: |
           echo "${{ vars.MINECRAFT_CONFIG }}" > .env
-          echo "${{ secret.HOSTS }}" > hosts
-          echo "${{ secret.HOSTS }}" > private-key
+          echo "${{ secrets.HOSTS }}" > hosts
+          echo "${{ secrets.HOSTS }}" > private-key
 
       - name: Backup
         run: ./bootstrap.sh private-key setup
         with:
           name: backup-$NOW
-          path: ./backup/${{ secret.VPS_HOSTNAME }}/home/${{ secret.VPS_USER }}/*
+          path: ./backup/${{ secrets.VPS_HOSTNAME }}/home/${{ secrets.VPS_USER }}/*
       
       - name: Setup
         run: ./bootstrap.sh private-key setup
