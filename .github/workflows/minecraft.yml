@@ -25,6 +25,7 @@ jobs:
           echo "${{ vars.MINECRAFT_CONFIG }}" > .env
           echo "${{ secrets.HOSTS }}" > hosts
           echo "${{ secrets.HOSTS }}" > private-key
+          chmod +x ./bootstrap.sh
 
       - name: Backup
         run: ./bootstrap.sh private-key setup
