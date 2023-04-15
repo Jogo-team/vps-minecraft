@@ -29,6 +29,7 @@ jobs:
           echo "${{ secrets.HOSTS }}" > hosts
           echo "${{ secrets.HOSTS }}" > private-key
           chmod +x ./bootstrap.sh
+          chmod 600 private-key
 
       - name: Backup
         run: ./bootstrap.sh private-key setup
