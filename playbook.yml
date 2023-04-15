@@ -3,6 +3,6 @@
   become: false
   vars:
     ansible_python_interpreter: /usr/bin/python3
-    ansible_user: $VPS_USER
+    ansible_user: ansible-default
   roles:
     - role: minecraft

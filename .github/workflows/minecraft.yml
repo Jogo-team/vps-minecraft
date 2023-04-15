@@ -15,7 +15,7 @@ jobs:
 
     env:
       ANSIBLE_HOST_KEY_CHECKING: False
-      ANSIBLE_CUSTOM_ARGS: -i hosts --private-key ./private-key -e "user=${{ secrets.VPS_USER }}" -vv playbook.yml
+      ANSIBLE_CUSTOM_ARGS: -i hosts --private-key ./private-key -e "username=${{ secrets.VPS_USER }} ansible_user=${{ secrets.VPS_USER }}" -vv playbook.yml
 
     steps:
       - name: Checkout repository 
