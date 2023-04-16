@@ -54,8 +54,3 @@ metafile = true
 file = "mods/starlight.pw.toml"
 hash = "7b110f0f87bb5f21381cc9c2338be6689219a36ef13cb34c22e745df4e6afbff"
 metafile = true
-
-[[files]]
-file = "mods/towns-and-towers.pw.toml"
-hash = "c781c968a8c24250cacb96339a8231076b24317c7c61efc144e1391bf3a4f478"
-metafile = true
