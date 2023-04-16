@@ -1,14 +1,6 @@
 hash-format = "sha256"
 
 [[files]]
-file = "README.md"
-hash = "c56dbeb2fdb4a695d7110d7742cb89c56ae41d9e54c2d8c912279a8f4bf27dd8"
-
-[[files]]
-file = "datapacks.json"
-hash = "9faecfe63636d7797d9d609696f78617028a51956b7fa3a6ce46f7bf55debc0d"
-
-[[files]]
 file = "mods/balm-fabric.pw.toml"
 hash = "d9d33e36bbfe24acb8650f3cf1cbfadb28ee8bd9d63be1ca9a9bfea5e34fbfc4"
 metafile = true
