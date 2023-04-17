@@ -29,9 +29,9 @@ jobs:
       - name: Installtion de packwiz
         run: go install github.com/packwiz/packwiz@latest
 
-      - name: Installation du mod ${{ input.name }}
-      - run: | 
-          packwiz ${{ input.source }} install ${{ input.name }}
+      - name: Installation du mod ${{ inputs.name }}
+        run: | 
+          packwiz ${{ inputs.source }} install ${{ inputs.name }}
           packwiz refresh
 
       
