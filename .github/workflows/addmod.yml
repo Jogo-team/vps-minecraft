@@ -1,0 +1,23 @@
+name: Ajout mod
+
+jobs:
+  AddMod:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository 
+        uses: actions/checkout@v3
+
+      - name: Setup go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '>=1.19'
+
+      - name: Install packwiz
+        run: go install github.com/packwiz/packwiz@latest
+
+      - name: Install mod ${{ input.modName }}
+      - run: | 
+          packwiz curseforge install ${{ input.modName }}
+          packwiz refresh
+
+      
