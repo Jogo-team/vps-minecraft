@@ -7,10 +7,12 @@ on:
         description: Nom du mod
         required: true
       source:
+        type: choice
         description: Source du mod
         options:
           - curseforge
           - modrinth
+        required: true
 
 jobs:
   AddMod:
