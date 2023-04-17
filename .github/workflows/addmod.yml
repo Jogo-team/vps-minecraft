@@ -17,6 +17,10 @@ on:
 jobs:
   AddMod:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./modpack  
+
     steps:
       - name: Checkout repository 
         uses: actions/checkout@v3
