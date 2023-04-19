@@ -1,4 +1,4 @@
-name: Ajout mod
+name: Ajout mods
 
 on:
   workflow_dispatch:
@@ -19,19 +19,10 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./modpack  
-
+        working-directory: ./modpack
     steps:
-      - name: Checkout repository 
-        uses: actions/checkout@v3
-
-      - name: Setup go
-        uses: actions/setup-go@v4
-        with:
-          go-version: '>=1.19'
-
-      - name: Install packwiz
-        run: go install github.com/packwiz/packwiz@latest
+      - name: Setup mod
+        uses: ./.github/actions/action-setup-mods
 
       - name: Install ${{ inputs.name }}
         run: | 
@@ -45,5 +36,6 @@ jobs:
           git add .
           git commit -m "ci: install ${{ inputs.name }}"
           git push  
+
           
       
