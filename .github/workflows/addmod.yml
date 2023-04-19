@@ -30,12 +30,12 @@ jobs:
         with:
           go-version: '>=1.19'
 
-      - name: Installtion de packwiz
+      - name: Installation de packwiz
         run: go install github.com/packwiz/packwiz@latest
 
       - name: Installation du mod ${{ inputs.name }}
         run: | 
-          packwiz ${{ inputs.source }} install ${{ inputs.name }}
+          packwiz -y ${{ inputs.source }} install ${{ inputs.name }}
           packwiz refresh
 
       
