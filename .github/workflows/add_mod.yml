@@ -22,7 +22,7 @@ jobs:
         working-directory: ./modpack
     steps:
       - name: Common mod
-        uses: ./.github/workflows/common/mod.yml
+        uses: ./.github/workflows/mod.yml
 
       - name: Install ${{ inputs.name }}
         run: | 

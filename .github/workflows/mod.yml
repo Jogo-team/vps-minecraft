@@ -1,5 +1,4 @@
 name: Common mod
-
 runs:
   using: "composite"
   steps:
