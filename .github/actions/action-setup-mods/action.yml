@@ -1,5 +1,7 @@
 name: Setup mod
+description: Setup mods
 runs:
+  using: "composite"
   steps:
     - name: Setup go
       uses: actions/setup-go@v4
