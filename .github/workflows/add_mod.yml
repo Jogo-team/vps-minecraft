@@ -15,17 +15,15 @@ on:
         required: true
 
 jobs:
-  CommonMod:
-    name: Common mod
-    uses: ./.github/workflows/commonmod.yml
-
   AddMod:
     runs-on: ubuntu-latest
-    needs: CommonMod
     defaults:
       run:
-        working-directory: ./modpack  
+        working-directory: ./modpack
     steps:
+      - name: Common mod
+        uses: ./.github/workflows/common/mod.yml
+
       - name: Install ${{ inputs.name }}
         run: | 
           packwiz -y ${{ inputs.source }} install ${{ inputs.name }}
@@ -38,5 +36,6 @@ jobs:
           git add .
           git commit -m "ci: install ${{ inputs.name }}"
           git push  
+
           
       
