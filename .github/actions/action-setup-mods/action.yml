@@ -1,4 +1,4 @@
-name: Common mod
+name: Setup mod
 runs:
   using: "composite"
   steps:

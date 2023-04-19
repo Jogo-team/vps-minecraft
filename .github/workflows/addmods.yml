@@ -1,4 +1,4 @@
-name: Ajout mod
+name: Ajout mods
 
 on:
   workflow_dispatch:
@@ -21,8 +21,8 @@ jobs:
       run:
         working-directory: ./modpack
     steps:
-      - name: Common mod
-        uses: ./.github/actions/action-mod
+      - name: Setup mod
+        uses: ./.github/actions/action-setup-mods
 
       - name: Install ${{ inputs.name }}
         run: | 
