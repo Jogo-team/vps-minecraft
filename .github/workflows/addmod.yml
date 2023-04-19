@@ -22,7 +22,7 @@ jobs:
         working-directory: ./modpack
     steps:
       - name: Common mod
-        uses: actions/action-mod
+        uses: ./.github/actions/action-mod
 
       - name: Install ${{ inputs.name }}
         run: | 
