@@ -1,4 +1,4 @@
-name: Ajout mod
+name: Add mod
 
 on:
   workflow_dispatch:
@@ -15,24 +15,16 @@ on:
         required: true
 
 jobs:
+  SetupMod:
+    name: Setup mod
+    uses: ./.github/workflows/setupmod.yml
+
   AddMod:
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: ./modpack  
-
     steps:
-      - name: Checkout repository 
-        uses: actions/checkout@v3
-
-      - name: Setup go
-        uses: actions/setup-go@v4
-        with:
-          go-version: '>=1.19'
-
-      - name: Install packwiz
-        run: go install github.com/packwiz/packwiz@latest
-
       - name: Install ${{ inputs.name }}
         run: | 
           packwiz -y ${{ inputs.source }} install ${{ inputs.name }}
