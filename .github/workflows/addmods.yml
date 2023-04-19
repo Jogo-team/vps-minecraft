@@ -21,6 +21,9 @@ jobs:
       run:
         working-directory: ./modpack
     steps:
+      - name: Checkout repository 
+        uses: actions/checkout@v3
+
       - name: Setup mod
         uses: ./.github/actions/action-setup-mods
 
