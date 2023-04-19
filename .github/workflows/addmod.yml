@@ -30,12 +30,20 @@ jobs:
         with:
           go-version: '>=1.19'
 
-      - name: Installation de packwiz
+      - name: Install packwiz
         run: go install github.com/packwiz/packwiz@latest
 
-      - name: Installation du mod ${{ inputs.name }}
+      - name: Install ${{ inputs.name }}
         run: | 
           packwiz -y ${{ inputs.source }} install ${{ inputs.name }}
           packwiz refresh
 
+      - name: Push mod
+        run: |
+          git config --local user.email "github-actions@users.noreply.github.com"
+          git config --local user.name "github-actions"
+          git add .
+          git commit -m "ci: install ${{ inputs.name }}"
+          git push  
+          
       
