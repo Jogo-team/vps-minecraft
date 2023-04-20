@@ -45,5 +45,5 @@ runs:
       uses: actions/upload-artifact@v3
       with:
         name: backup-$NOW
-        path: backups/${{ inputs.vps-hostname }}/home/${{ secrets.vps-user }}/*.zip
+        path: backups/${{ inputs.vps-hostname }}/home/${{ inputs.vps-user }}/*.zip
     
