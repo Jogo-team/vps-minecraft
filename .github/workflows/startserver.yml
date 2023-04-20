@@ -2,7 +2,6 @@ name: Start server
 
 on:
   workflow_dispatch:
-  pull_request:
   
 jobs:
 
@@ -20,12 +19,9 @@ jobs:
       - name: Setup server connection
         uses: ./.github/actions/action-setup-server
         with:
-          ansible-custom-args: ${{ env.ANSIBLE_CUSTOM_ARGS }}
           minecraft-config: ${{ vars.MINECRAFT_CONFIG }}
           vps-hosts: ${{ secrets.HOSTS }}
           vps-private-key: ${{ secrets.PRIVATE_KEY }}
-          vps-hostname: ${{ secrets.VPS_HOSTNAME }}
-          vps-user: ${{ secrets.VPS_USER }}
 
       - name: Setup
         run: ansible-playbook --tags="setup" ${{ env.ANSIBLE_CUSTOM_ARGS }}

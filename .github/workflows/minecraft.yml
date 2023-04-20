@@ -25,10 +25,14 @@ jobs:
       - name: Setup server connection
         uses: ./.github/actions/action-setup-server
         with:
-          ansible-custom-args: ${{ env.ANSIBLE_CUSTOM_ARGS }}
           minecraft-config: ${{ vars.MINECRAFT_CONFIG }}
           vps-hosts: ${{ secrets.HOSTS }}
           vps-private-key: ${{ secrets.PRIVATE_KEY }}
+      
+      - name: Backup server
+        uses: ./.github/actions/action-backup-server
+        with:
+          ansible-custom-args: ${{ env.ANSIBLE_CUSTOM_ARGS }}
           vps-hostname: ${{ secrets.VPS_HOSTNAME }}
           vps-user: ${{ secrets.VPS_USER }}
       
