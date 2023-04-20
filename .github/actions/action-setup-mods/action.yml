@@ -9,3 +9,4 @@ runs:
         go-version: '>=1.19'
         
     - run: go install github.com/packwiz/packwiz@latest
+      shell: bash
