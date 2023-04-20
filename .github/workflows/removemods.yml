@@ -1,0 +1,37 @@
+name: Remove mods
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: Nom du mod
+        required: true
+
+jobs:
+  AddMod:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./modpack
+    steps: 
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        
+      - name: Setup mod
+        uses: ./.github/actions/action-setup-mods
+
+      - name: Install ${{ inputs.name }}
+        run: | 
+          packwiz -y remove ${{ inputs.name }}
+          packwiz refresh 
+
+      - name: Push mod
+        run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+          git add .
+          git commit -m "ci: install ${{ inputs.name }}"
+          git push  
+
+          
+      
