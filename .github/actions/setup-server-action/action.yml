@@ -21,7 +21,6 @@ runs:
       run: ansible-playbook --tags="backup" ${{ env.ANSIBLE_CUSTOM_ARGS }}
 
     - name: Upload backup
-      shell: bash
       uses: actions/upload-artifact@v3
       with:
         name: backup-$NOW
