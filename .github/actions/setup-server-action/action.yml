@@ -4,9 +4,11 @@ runs:
   using: "composite"
   steps:
     - name: Set current date as env variable
+      shell: bash
       run: echo "NOW=$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
 
     - name: Get config
+      shell: bash
       run: |
         echo "${{ vars.MINECRAFT_CONFIG }}" > .env
         echo "${{ secrets.HOSTS }}" > hosts
@@ -15,9 +17,11 @@ runs:
         chmod 600 private-key
 
     - name: Backup
+      shell: bash
       run: ansible-playbook --tags="backup" ${{ env.ANSIBLE_CUSTOM_ARGS }}
 
     - name: Upload backup
+      shell: bash
       uses: actions/upload-artifact@v3
       with:
         name: backup-$NOW
