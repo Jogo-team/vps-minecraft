@@ -1,4 +1,4 @@
-name: Ajout mods
+name: Add mods
 
 on:
   workflow_dispatch:
