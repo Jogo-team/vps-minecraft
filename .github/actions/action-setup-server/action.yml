@@ -1,0 +1,49 @@
+name: Setup server connection
+description: This action setup the config to connect to vps via ansible and produces one backup
+
+inputs:
+  ansible-custom-args:
+    description: vps ci user
+    required: true
+  minecraft-config:
+    description: minecraft server config
+    required: true
+  vps-hosts:
+    description: vps hosts
+    required: true
+  vps-private-key:
+    description: vps private key
+    required: true
+  vps-hostname:
+    description: vps hostname
+    required: true
+  vps-user:
+    description: vps ci user
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Set current date as env variable
+      shell: bash
+      run: echo "NOW=$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
+
+    - name: Get config
+      shell: bash
+      run: |
+        echo "${{ inputs.minecraft-config }}" > .env
+        echo "${{ inputs.vps-hosts }}" > hosts
+        echo "${{ inputs.vps-private-key }}" > private-key
+        chmod +x ./bootstrap.sh
+        chmod 600 private-key
+
+    - name: Backup
+      shell: bash
+      run: ansible-playbook --tags="backup" ${{ inputs.ansible-custom-args }}
+
+    - name: Upload backup
+      uses: actions/upload-artifact@v3
+      with:
+        name: backup-$NOW
+        path: backups/${{ inputs.vps-hostname }}/home/${{ secrets.vps-user }}/*.zip
+    
