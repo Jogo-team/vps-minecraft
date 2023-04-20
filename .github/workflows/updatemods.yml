@@ -5,6 +5,9 @@ on:
     inputs:
       name:
         description: Nom du mod
+  
+  schedule:
+    - cron: '0 3 * * *'
 
 jobs:
   UpdateMod:
