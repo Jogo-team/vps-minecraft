@@ -21,18 +21,17 @@ jobs:
       run:
         working-directory: ./modpack
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
       - name: Setup mod
         uses: ./.github/actions/action-setup-mods
 
       - name: Install ${{ inputs.name }}
+        shell: bash
         run: | 
           packwiz -y ${{ inputs.source }} install ${{ inputs.name }}
-          packwiz refresh
+          packwiz refresh 
 
       - name: Push mod
+        shell: bash
         run: |
           git config --global user.name "${{ github.actor }}"
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
