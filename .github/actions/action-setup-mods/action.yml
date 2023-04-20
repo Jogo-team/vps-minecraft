@@ -3,12 +3,8 @@ description: Setup mods
 runs:
   using: "composite"
   steps:
-    - name: Setup go
-      shell: bash
-      uses: actions/setup-go@v4
+    - uses: actions/setup-go@v4
       with:
         go-version: '>=1.19'
-
-    - name: Install packwiz
-      shell: bash
-      run: go install github.com/packwiz/packwiz@latest
+        
+    - run: go install github.com/packwiz/packwiz@latest
