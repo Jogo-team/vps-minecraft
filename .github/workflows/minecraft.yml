@@ -27,8 +27,8 @@ jobs:
         with:
           ansible-custom-args: ${{ env.ANSIBLE_CUSTOM_ARGS }}
           minecraft-config: ${{ vars.MINECRAFT_CONFIG }}
-          vps-hosts: ${{ secrets.VPS_HOSTS }}
-          vps-private-key: ${{ secrets.VPS_PRIVATE_KEY }}
+          vps-hosts: ${{ secrets.HOSTS }}
+          vps-private-key: ${{ secrets.PRIVATE_KEY }}
           vps-hostname: ${{ secrets.VPS_HOSTNAME }}
           vps-user: ${{ secrets.VPS_USER }}
       
