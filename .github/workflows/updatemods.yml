@@ -1,0 +1,43 @@
+name: Update mods
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: Nom du mod
+
+jobs:
+  UpdateMod:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./modpack
+    steps: 
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        
+      - name: Setup mod
+        uses: ./.github/actions/action-setup-mods
+
+      - name: Update ${{ inputs.name }}
+        if: "${{ github.event.inputs.name != '' }}"
+        run: | 
+          packwiz -y update ${{ inputs.name }}
+          packwiz refresh 
+      
+      - name: Update all mods
+        if: "${{ github.event.inputs.name == '' }}"
+        run: | 
+          packwiz -y update -a
+          packwiz refresh
+
+      - name: Push mod
+        run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+          git add .
+          git commit -m "ci: update mods"
+          git push  
+
+          
+      
