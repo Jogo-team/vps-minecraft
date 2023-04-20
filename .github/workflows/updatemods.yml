@@ -1,21 +1,13 @@
-name: Add mods
+name: Update mods
 
 on:
   workflow_dispatch:
     inputs:
       name:
         description: Nom du mod
-        required: true
-      source:
-        type: choice
-        description: Source du mod
-        options:
-          - modrinth
-          - curseforge
-        required: true
 
 jobs:
-  AddMod:
+  UpdateMod:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -27,17 +19,24 @@ jobs:
       - name: Setup mod
         uses: ./.github/actions/action-setup-mods
 
-      - name: Install ${{ inputs.name }}
+      - name: Update ${{ inputs.name }}
+        if: "${{ github.event.inputs.name != '' }}"
         run: | 
-          packwiz -y ${{ inputs.source }} install ${{ inputs.name }}
+          packwiz -y update ${{ inputs.name }}
           packwiz refresh 
+      
+      - name: Update all mods
+        if: "${{ github.event.inputs.name == '' }}"
+        run: | 
+          packwiz -y update -a
+          packwiz refresh
 
       - name: Push mod
         run: |
           git config --global user.name "${{ github.actor }}"
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
           git add .
-          git commit -m "ci: install ${{ inputs.name }}"
+          git commit -m "ci: update mods"
           git push  
 
           
