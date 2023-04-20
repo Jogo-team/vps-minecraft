@@ -26,6 +26,6 @@ runs:
     - name: Upload backup
       uses: actions/upload-artifact@v3
       with:
-        name: backup-${{ inputs.vps-hostname }}
+        name: backup-${{ env.NOW }}
         path: backups/${{ inputs.vps-hostname }}/home/${{ inputs.vps-user }}/*.zip
     
