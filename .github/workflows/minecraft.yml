@@ -32,10 +32,13 @@ jobs:
           vps-hostname: ${{ secrets.VPS_HOSTNAME }}
           vps-user: ${{ secrets.VPS_USER }}
       
-
       - if: ${{ inputs.recreate == true }}
         name: Stop
-        run: ansible-playbook --tags="reset" ${{ env.ANSIBLE_CUSTOM_ARGS }}
+        run: ansible-playbook --tags="stop" ${{ env.ANSIBLE_CUSTOM_ARGS }}
+        
+      # - if: ${{ inputs.recreate == true }}
+      #   name: Reset
+      #   run: ansible-playbook --tags="reset" ${{ env.ANSIBLE_CUSTOM_ARGS }}
       
       - name: Setup
         run: ansible-playbook --tags="setup" ${{ env.ANSIBLE_CUSTOM_ARGS }}
