@@ -1,0 +1,44 @@
+name: StopServer
+
+on:
+  workflow_dispatch:
+    inputs:
+      recreate:
+        description: Recreate world
+        required: true
+        type: boolean
+        default: false
+  
+jobs:
+
+  Update-server:
+    runs-on: ubuntu-latest
+
+    env:
+      ANSIBLE_HOST_KEY_CHECKING: False
+      ANSIBLE_CUSTOM_ARGS: -i hosts --private-key ./private-key -e "username=${{ secrets.VPS_USER }} ansible_user=${{ secrets.VPS_USER }}" -vv playbook.yml
+
+    steps:
+      - name: Checkout repository 
+        uses: actions/checkout@v3
+
+      - name: Setup server connection
+        uses: ./.github/actions/setup-server-action
+        with:
+          ansible-custom-args: ${{ env.ANSIBLE_CUSTOM_ARGS }}
+          minecraft-config: ${{ vars.MINECRAFT_CONFIG }}
+          vps-hosts: ${{ secrets.VPS_HOSTS }}
+          vps-private-key: ${{ secrets.VPS_PRIVATE_KEY }}
+          vps-hostname: ${{ secrets.VPS_HOSTNAME }}
+          vps-user: ${{ secrets.VPS_USER }}
+      
+
+      - if: ${{ inputs.recreate == true }}
+        name: Stop
+        run: ansible-playbook --tags="reset" ${{ env.ANSIBLE_CUSTOM_ARGS }}
+      
+      - name: Setup
+        run: ansible-playbook --tags="setup" ${{ env.ANSIBLE_CUSTOM_ARGS }}
+      
+      - name: Start
+        run: ansible-playbook --tags="start" ${{ env.ANSIBLE_CUSTOM_ARGS }}
