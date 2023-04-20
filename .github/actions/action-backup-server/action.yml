@@ -1,0 +1,31 @@
+name: Backup server 
+description: This action backup the server
+
+inputs:
+  ansible-custom-args:
+    description: vps ci user
+    required: true
+  vps-hostname:
+    description: vps hostname
+    required: true
+  vps-user:
+    description: vps ci user
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Set current date as env variable
+      shell: bash
+      run: echo "NOW=$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
+
+    - name: Backup
+      shell: bash
+      run: ansible-playbook --tags="backup" ${{ inputs.ansible-custom-args }}
+
+    - name: Upload backup
+      uses: actions/upload-artifact@v3
+      with:
+        name: backup-${{ env.NOW }}
+        path: backups/${{ inputs.vps-hostname }}/home/${{ inputs.vps-user }}/*.zip
+    

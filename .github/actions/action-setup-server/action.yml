@@ -1,0 +1,26 @@
+name: Setup server connection
+description: This action setup the config to connect to vps via ansible
+
+inputs:
+  minecraft-config:
+    description: minecraft server config
+    required: true
+  vps-hosts:
+    description: vps hosts
+    required: true
+  vps-private-key:
+    description: vps private key
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Get config
+      shell: bash
+      run: |
+        echo "${{ inputs.minecraft-config }}" > .env
+        echo "${{ inputs.vps-hosts }}" > hosts
+        echo "${{ inputs.vps-private-key }}" > private-key
+        chmod +x ./bootstrap.sh
+        chmod 600 private-key
+    
