@@ -13,7 +13,10 @@ on:
         required: true
         type: boolean
         default: true
-
+      restore:
+        description: restore world from backup
+        required: false
+        type: string
   
 jobs:
 
@@ -51,6 +54,13 @@ jobs:
         name: Reset
         run: ansible-playbook --tags="reset" ${{ env.ANSIBLE_CUSTOM_ARGS }}
       
+      - if: ${{ inputs.restore != '' }}
+        name: Restore
+        uses: actions/download-artifact@v3
+        with:
+          name: ${{ inputs.restore }}
+          path: worlds/backup
+
       - name: Setup
         run: ansible-playbook --tags="setup" ${{ env.ANSIBLE_CUSTOM_ARGS }}
       
