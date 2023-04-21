@@ -33,5 +33,5 @@ runs:
       uses: actions/upload-artifact@v3
       with:
         name: backup-${{ env.NOW }}
-        path: backups/${{ inputs.vps-hostname }}/home/${{ inputs.vps-user }}/*.zip
+        path: artifacts/world
     
