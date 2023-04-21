@@ -1,6 +1,7 @@
 version: "3.7"
 services:
   mcserver:
+    user: "1002:1002"
     image: itzg/minecraft-server:java17-alpine
     container_name: mcserver
     env_file: .env
@@ -14,7 +15,6 @@ services:
       - "./datapacks:/datapacks"
       - "./config:/config"
       - "./config/carpet.conf:/data/world/carpet.conf"
-      - "./config/carpet-fixes.conf:/data/world/carpet-fixes.conf"
     healthcheck:
       test: mc-health
       start_period: 1m
