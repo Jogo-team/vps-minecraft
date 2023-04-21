@@ -14,7 +14,6 @@ services:
       - "./mods:/mods"
       - "./datapacks:/datapacks"
       - "./config:/config"
-      - "./config/carpet.conf:/data/world/carpet.conf"
     healthcheck:
       test: mc-health
       start_period: 1m
