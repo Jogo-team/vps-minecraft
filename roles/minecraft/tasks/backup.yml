@@ -9,3 +9,7 @@
   ansible.builtin.fetch:
     src: "/home/{{ username }}/{{ ansible_date_time.epoch }}.zip"
     dest: backups
+- name: delete zip from server
+  ansible.builtin.file:
+    state: absent
+    path: "/home/{{ username }}/{{ ansible_date_time.epoch }}.zip"

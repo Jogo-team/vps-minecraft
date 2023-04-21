@@ -23,6 +23,12 @@ runs:
       shell: bash
       run: ansible-playbook --tags="backup" ${{ inputs.ansible-custom-args }}
 
+    - name: unzip backup
+      shell: bash
+      run: |
+        mkdir artifacts/ && \
+        unzip backups/${{ inputs.vps-hostname }}/home/${{ inputs.vps-user }}/*.zip -d artifacts/
+
     - name: Upload backup
       uses: actions/upload-artifact@v3
       with:
