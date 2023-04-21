@@ -8,6 +8,12 @@ on:
         required: true
         type: boolean
         default: false
+      backup:
+        description: Backup world
+        required: true
+        type: boolean
+        default: true
+
   
 jobs:
 
@@ -29,7 +35,8 @@ jobs:
           vps-hosts: ${{ secrets.HOSTS }}
           vps-private-key: ${{ secrets.PRIVATE_KEY }}
       
-      - name: Backup server
+      - if: ${{ inputs.backup == true }}
+        name: Backup server
         uses: ./.github/actions/action-backup-server
         with:
           ansible-custom-args: ${{ env.ANSIBLE_CUSTOM_ARGS }}
