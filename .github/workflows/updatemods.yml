@@ -43,3 +43,10 @@ jobs:
             git commit -m "ci: update mods"
             git push  
           fi
+
+      - name: Update server
+        uses: ./.github/workflows/updateserver.yml
+        with:
+          recreate: False
+          backup: True
+

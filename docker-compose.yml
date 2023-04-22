@@ -1,5 +1,13 @@
-version: "3.7"
+version: "3.8"
 services:
+  plugsy:
+    image: plugsy/core
+    container_name: plugsy
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 3000:3000
+    restart: unless-stopped
   mcserver:
     user: "0:0"
     image: itzg/minecraft-server:java17-alpine

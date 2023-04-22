@@ -17,7 +17,23 @@ on:
         description: restore world from backup
         required: false
         type: string
-  
+  workflow_call:
+    inputs:
+      recreate:
+        description: Recreate world
+        required: true
+        type: boolean
+        default: false
+      backup:
+        description: Backup world
+        required: true
+        type: boolean
+        default: true
+      restore:
+        description: restore world from backup
+        required: false
+        type: string
+
 jobs:
 
   Update-server:
