@@ -27,3 +27,7 @@ services:
       start_period: 1m
       interval: 1m
       retries: 20
+    labels:
+      plugsy.name: "Minecraft server"
+      plugsy.icon: "@styled-icons/simple-icons/Minecraft"
+      plugsy.category: "Games"

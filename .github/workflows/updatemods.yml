@@ -47,7 +47,4 @@ jobs:
   UpdateServer:
     uses: ./.github/workflows/updateserver.yml
     needs: UpdateMod
-    with:
-      recreate: False
-      backup: True
 

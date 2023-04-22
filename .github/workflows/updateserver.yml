@@ -5,12 +5,10 @@ on:
     inputs:
       recreate:
         description: Recreate world
-        required: true
         type: boolean
         default: false
       backup:
         description: Backup world
-        required: true
         type: boolean
         default: true
       restore:
@@ -21,12 +19,10 @@ on:
     inputs:
       recreate:
         description: Recreate world
-        required: true
         type: boolean
         default: false
       backup:
         description: Backup world
-        required: true
         type: boolean
         default: true
       restore:
