@@ -6,11 +6,6 @@ hash = "d9d33e36bbfe24acb8650f3cf1cbfadb28ee8bd9d63be1ca9a9bfea5e34fbfc4"
 metafile = true
 
 [[files]]
-file = "mods/carpet.pw.toml"
-hash = "69ce0a2a178babd0f25d3e8f9769c125abcbeea2273b4c7b6b853b21826cf721"
-metafile = true
-
-[[files]]
 file = "mods/chunky.pw.toml"
 hash = "53992e517f6111825acd7b19d72b4c6aab128e6104a2b08066a3920f5b78b460"
 metafile = true

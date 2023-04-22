@@ -20,7 +20,7 @@ jobs:
       - name: Setup mod
         uses: ./.github/actions/action-setup-mods
 
-      - name: Install ${{ inputs.name }}
+      - name: Remove ${{ inputs.name }}
         run: | 
           packwiz -y remove ${{ inputs.name }}
           packwiz refresh 

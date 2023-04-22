@@ -12,6 +12,7 @@
       - mods
       - config
       - worlds
+      - data
     dest: server.tgz
 - name: copy server zip to remote
   ansible.builtin.copy:

@@ -5,16 +5,31 @@ on:
     inputs:
       recreate:
         description: Recreate world
-        required: true
         type: boolean
         default: false
       backup:
         description: Backup world
-        required: true
         type: boolean
         default: true
+      restore:
+        description: restore world from backup
+        required: false
+        type: string
+  workflow_call:
+    inputs:
+      recreate:
+        description: Recreate world
+        type: boolean
+        default: false
+      backup:
+        description: Backup world
+        type: boolean
+        default: true
+      restore:
+        description: restore world from backup
+        required: false
+        type: string
 
-  
 jobs:
 
   Update-server:
@@ -51,6 +66,14 @@ jobs:
         name: Reset
         run: ansible-playbook --tags="reset" ${{ env.ANSIBLE_CUSTOM_ARGS }}
       
+      - if: ${{ inputs.restore != '' }}
+        name: Restore
+        uses: ./.github/actions/action-get-artifact-from-id
+        with:
+          artifact-id: ${{ inputs.restore }}
+          output-dir: data/world
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Setup
         run: ansible-playbook --tags="setup" ${{ env.ANSIBLE_CUSTOM_ARGS }}
       

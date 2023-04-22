@@ -43,3 +43,9 @@ jobs:
             git commit -m "ci: update mods"
             git push  
           fi
+
+  UpdateServer:
+    uses: ./.github/workflows/updateserver.yml
+    needs: UpdateMod
+    secrets: inherit
+
