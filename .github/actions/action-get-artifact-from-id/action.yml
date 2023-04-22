@@ -18,13 +18,14 @@ runs:
     - name: Download artifact
       shell: bash
       run: |
-        curl -v -L \
+        curl -L \
           -H "Accept: application/vnd.github+json" \
           -H "Authorization: Bearer ${{ inputs.github-token }}" \
           -o artifact.zip ${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/actions/artifacts/${{ inputs.artifact-id }}/zip
-    - name: ls
+    - name: test
       shell: bash
-      run: ls -la
+      run: cat artrifact.zip
+      
     - name: Unzip artifact
       shell: bash
       run: unzip artifact.zip -d ${{ inputs.output-dir }}
