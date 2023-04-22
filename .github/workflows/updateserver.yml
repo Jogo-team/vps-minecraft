@@ -56,10 +56,11 @@ jobs:
       
       - if: ${{ inputs.restore != '' }}
         name: Restore
-        uses: actions/download-artifact@v3
+        uses: ./.github/actions/action-get-artifact-from-id
         with:
-          name: ${{ inputs.restore }}
-          path: worlds/backup
+          artifact-id: ${{ inputs.restore }}
+          output-dir: worlds/backup
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup
         run: ansible-playbook --tags="setup" ${{ env.ANSIBLE_CUSTOM_ARGS }}
