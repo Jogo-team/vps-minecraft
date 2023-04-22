@@ -23,6 +23,10 @@ runs:
           -H "Authorization: Bearer ${{ inputs.github-token }}" \
           -o artifact.zip ${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/actions/artifacts/${{ inputs.artifact-id }}/zip
       
+    - name: Create output directory
+      shell: bash
+      run: mkdir -p ${{ inputs.output-dir }}
+
     - name: Unzip artifact
       shell: bash
       run: unzip artifact.zip -d ${{ inputs.output-dir }}
