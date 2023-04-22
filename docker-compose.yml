@@ -1,12 +1,12 @@
 version: "3.8"
 services:
   plugsy:
-    image: plugsy/core
-    container_name: plugsy
+    image: rancher/rancher
+    container_name: rancher
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     ports:
-      - 3000:3000
+      - 80:80
     restart: unless-stopped
   mcserver:
     user: "0:0"
