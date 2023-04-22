@@ -8,6 +8,7 @@ services:
     ports:
       - 80:80
     restart: unless-stopped
+    privileged: true
   mcserver:
     user: "0:0"
     image: itzg/minecraft-server:java17-alpine
