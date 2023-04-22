@@ -59,7 +59,7 @@ jobs:
         uses: ./.github/actions/action-get-artifact-from-id
         with:
           artifact-id: ${{ inputs.restore }}
-          output-dir: worlds/backup
+          output-dir: data/world
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup
