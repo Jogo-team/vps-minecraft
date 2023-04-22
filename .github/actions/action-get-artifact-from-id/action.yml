@@ -24,7 +24,7 @@ runs:
           -o artifact.zip ${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/actions/artifacts/${{ inputs.artifact-id }}/zip
     - name: test
       shell: bash
-      run: cat artrifact.zip
+      run: cat artifact.zip
       
     - name: Unzip artifact
       shell: bash
