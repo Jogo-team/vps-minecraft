@@ -47,4 +47,5 @@ jobs:
   UpdateServer:
     uses: ./.github/workflows/updateserver.yml
     needs: UpdateMod
+    secrets: inherit
 

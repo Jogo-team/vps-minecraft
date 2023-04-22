@@ -29,5 +29,5 @@ services:
       retries: 20
     labels:
       plugsy.name: "Minecraft server"
-      plugsy.icon: "@styled-icons/simple-icons/Minecraft"
+      plugsy.icon: "@styled-icons/bootstrap/MinecartLoaded"
       plugsy.category: "Games"
