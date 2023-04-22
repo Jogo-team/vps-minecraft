@@ -44,9 +44,10 @@ jobs:
             git push  
           fi
 
-      - name: Update server
-        uses: ./.github/workflows/updateserver.yml
-        with:
-          recreate: False
-          backup: True
+  UpdateServer:
+    uses: ./.github/workflows/updateserver.yml
+    needs: UpdateMod
+    with:
+      recreate: False
+      backup: True
 
