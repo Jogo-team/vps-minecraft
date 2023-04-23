@@ -36,6 +36,11 @@ hash = "c2814d761fc227d78759c88c38b37b3985fe4a36d18520a333965a1a9a601c2d"
 metafile = true
 
 [[files]]
+file = "mods/geophilic.pw.toml"
+hash = "8ef040cae72d14431f97c1bd842e286ac97bb0ac777f1456d4b2d139641fc0cf"
+metafile = true
+
+[[files]]
 file = "mods/krypton.pw.toml"
 hash = "ef2f37f8f7eb3481d6d379b54b6607fc7e2b51be0a8fabeccdb0e39ae01cba0c"
 metafile = true
