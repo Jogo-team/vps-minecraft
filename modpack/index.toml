@@ -66,6 +66,11 @@ hash = "8558b5f75fa4bc1e44f3340c1cabd0e5710fbcc74d90d0f94ae4598be122e697"
 metafile = true
 
 [[files]]
+file = "mods/sdlink.pw.toml"
+hash = "ffbbc62febff34ccfd9c644b1845ddfa9bc9e944758e567ea52b9e921e0246bf"
+metafile = true
+
+[[files]]
 file = "mods/starlight.pw.toml"
 hash = "7b110f0f87bb5f21381cc9c2338be6689219a36ef13cb34c22e745df4e6afbff"
 metafile = true
