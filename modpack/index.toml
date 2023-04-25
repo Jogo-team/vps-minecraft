@@ -16,8 +16,13 @@ hash = "434bea6bc8c6b9abe951688847292ea5cf32a1d4b585e9e1d3f13f1dca58c3ff"
 metafile = true
 
 [[files]]
+file = "mods/ct-overhaul-village.pw.toml"
+hash = "c6acf1dd90f76ca3047ee52ce019e821997ceaeec984a3c7bb30d351a930ab09"
+metafile = true
+
+[[files]]
 file = "mods/fabric-api.pw.toml"
-hash = "7857d46b41b5c4a2a9a11fd17572a266c633064ac026b72588e0f4afcb296942"
+hash = "3fcfa480ee797c4c520a033f2d4ccc532a0761565e9f2de8011901821c960128"
 metafile = true
 
 [[files]]
@@ -28,6 +33,11 @@ metafile = true
 [[files]]
 file = "mods/ferrite-core.pw.toml"
 hash = "c2814d761fc227d78759c88c38b37b3985fe4a36d18520a333965a1a9a601c2d"
+metafile = true
+
+[[files]]
+file = "mods/geophilic.pw.toml"
+hash = "8ef040cae72d14431f97c1bd842e286ac97bb0ac777f1456d4b2d139641fc0cf"
 metafile = true
 
 [[files]]
@@ -48,6 +58,16 @@ metafile = true
 [[files]]
 file = "mods/netherportalfix-fabric.pw.toml"
 hash = "0cea1aa4c61df01dfc29fcb213c0ee67d86f9e3d2674c8e38cf2e15d40d44588"
+metafile = true
+
+[[files]]
+file = "mods/nullscape.pw.toml"
+hash = "8558b5f75fa4bc1e44f3340c1cabd0e5710fbcc74d90d0f94ae4598be122e697"
+metafile = true
+
+[[files]]
+file = "mods/sdlink.pw.toml"
+hash = "ffbbc62febff34ccfd9c644b1845ddfa9bc9e944758e567ea52b9e921e0246bf"
 metafile = true
 
 [[files]]
