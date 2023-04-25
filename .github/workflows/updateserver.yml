@@ -81,13 +81,6 @@ jobs:
           key: "botConfig.botToken"
           value: ${{ secrets.BOT_TOKEN }}
 
-      - name: Setup bot channel
-        uses: ciiiii/toml-editor@1.0.0
-        with:
-          file: "config/simple-discord-bot.toml"
-          key: "channels.chatChannelID"
-          value: ${{ secrets.BOT_CHANNEL_ID }}
-
       - name: Setup bot webhook
         uses: ciiiii/toml-editor@1.0.0
         with:
