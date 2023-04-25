@@ -38,7 +38,7 @@
 	# - WARNING: TEXT COMMANDS HAVE BEEN DEPRECATED, USE SLASH COMMANDS INSTEAD!!
 	botPrefix = "~"
 	#Do not add Playing. A status to display on the bot. You can use %players% and %maxplayers% to show the number of players on the server
-	botStatus = "Minecraft"
+	botStatus = "Minecraft avec %players%/%maxplayers% personnes"
 	#The type of the status displayed on the bot. Valid entries are: PLAYING, STREAMING, WATCHING, LISTENING
 	botStatusType = "PLAYING"
 	#The URL that will be used when the "botStatusType" is set to "STREAMING", required to display as "streaming".
@@ -75,7 +75,7 @@
 #Chat Config
 [chat]
 	#The type of image to use as the player icon in messages. Valid entries are: AVATAR, HEAD, BODY, COMBO
-	playerAvatarType = "HEAD"
+	playerAvatarType = "AVATAR"
 	#Prefix to add to Minecraft when a message is relayed from Discord. Supports MC formatting. Use %user% for the Discord Username
 	mcPrefix = "§e[Discord]§r %user%: "
 	#Should messages from bots be relayed
