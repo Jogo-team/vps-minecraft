@@ -74,6 +74,20 @@ jobs:
           output-dir: data/world
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Setup bot
+        uses: ciiiii/toml-editor@1.0.0
+        with:
+          file: "config/simple-discord-bot.toml"
+          key: "botConfig.botToken"
+          value: ${{ secrets.BOT_TOKEN }}
+
+      - name: Setup bot webhook
+        uses: ciiiii/toml-editor@1.0.0
+        with:
+          file: "config/simple-discord-bot.toml"
+          key: "webhooks.chatWebhook"
+          value: ${{ secrets.BOT_WEBHOOK_URL }}
+
       - name: Setup
         run: ansible-playbook --tags="setup" ${{ env.ANSIBLE_CUSTOM_ARGS }}
       
