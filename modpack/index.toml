@@ -17,7 +17,7 @@ metafile = true
 
 [[files]]
 file = "mods/ct-overhaul-village.pw.toml"
-hash = "c6acf1dd90f76ca3047ee52ce019e821997ceaeec984a3c7bb30d351a930ab09"
+hash = "565cbd741067bbda6b704c8281ecd8c00d3eaccb8ebaa5e771ebd292aa391768"
 metafile = true
 
 [[files]]
