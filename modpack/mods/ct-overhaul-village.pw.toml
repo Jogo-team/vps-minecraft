@@ -1,13 +1,13 @@
 name = "ChoiceTheorem's Overhauled Village"
-filename = "ctov-3.2.0b.jar"
+filename = "ctov-3.2.1.jar"
 side = "both"
 
 [download]
-url = "https://cdn.modrinth.com/data/fgmhI8kH/versions/Pg8s7GZE/ctov-3.2.0b.jar"
+url = "https://cdn.modrinth.com/data/fgmhI8kH/versions/JiU3eJDL/ctov-3.2.1.jar"
 hash-format = "sha1"
-hash = "cb08aa436f4f3417f60ea958e0435bd1262270f7"
+hash = "37c07fde28f5c04d13ca251307055a58ecbda17a"
 
 [update]
 [update.modrinth]
 mod-id = "fgmhI8kH"
-version = "Pg8s7GZE"
+version = "JiU3eJDL"
