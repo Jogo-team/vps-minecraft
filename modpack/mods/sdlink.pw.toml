@@ -1,13 +1,13 @@
 name = "Simple Discord Link"
-filename = "SimpleDiscordLink-fabric-1.19.3-2.2.1.jar"
+filename = "SimpleDiscordLink-fabric-1.19.3-2.2.2.jar"
 side = "server"
 
 [download]
-url = "https://cdn.modrinth.com/data/Sh0YauEf/versions/MTGFMPrs/SimpleDiscordLink-fabric-1.19.3-2.2.1.jar"
+url = "https://cdn.modrinth.com/data/Sh0YauEf/versions/o6PeNvt1/SimpleDiscordLink-fabric-1.19.3-2.2.2.jar"
 hash-format = "sha1"
-hash = "67a5cd3561f4697220a321744c5801f2fc4b9c19"
+hash = "4d6919ae636f072bd87cc9ce8ec9b276e0cff20c"
 
 [update]
 [update.modrinth]
 mod-id = "Sh0YauEf"
-version = "MTGFMPrs"
+version = "o6PeNvt1"
