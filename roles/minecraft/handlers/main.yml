@@ -1,18 +1,22 @@
 ---
 - name: restart
-  become: false
-  become_user: "{{ username }}"
   tasks:
   - name: stop autorestart service
+    become: false
+    become_user: "{{ username }}"
     ansible.builtin.service:
       name: autorestart
       state: stopped
   - name: restart docker
+    become: false
+    become_user: "{{ username }}"
     community.docker.docker_compose:
       project_src: "/home/{{ username }}/"
       build: no
       restarted: yes
   - name: start autorestart service
+    become: false
+    become_user: "{{ username }}"
     ansible.builtin.service:
       name: autorestart
       state: started
