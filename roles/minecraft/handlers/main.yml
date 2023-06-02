@@ -8,11 +8,11 @@
     restarted: yes
 - name: stop_service
   ansible.builtin.systemd:
-    name: autorestart
+    name: autorestart.service
     state: stopped
 - name: start_service
   ansible.builtin.systemd:
-    name: autorestart
+    name: autorestart.service
     state: started
 - name: stop
   become: false
