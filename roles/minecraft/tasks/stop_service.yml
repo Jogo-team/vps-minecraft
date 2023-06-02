@@ -1,5 +1,6 @@
 ---
 - name: stop_service
+  become: true
   ansible.builtin.systemd:
     name: autorestart.service
     state: stopped
