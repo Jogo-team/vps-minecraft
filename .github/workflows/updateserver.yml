@@ -91,5 +91,11 @@ jobs:
       - name: Setup
         run: ansible-playbook --tags="setup" ${{ env.ANSIBLE_CUSTOM_ARGS }}
       
+      - name: Stop_service
+        run: ansible-playbook --tags="stop_service" ${{ env.ANSIBLE_CUSTOM_ARGS }}
+      
       - name: Start
         run: ansible-playbook --tags="start" ${{ env.ANSIBLE_CUSTOM_ARGS }}
+
+      - name: Start_service
+        run: ansible-playbook --tags="start_service" ${{ env.ANSIBLE_CUSTOM_ARGS }}
