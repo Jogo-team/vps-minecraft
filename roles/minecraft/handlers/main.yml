@@ -7,13 +7,13 @@
     build: no
     restarted: yes
 - name: stop_service
-  become: false
+  become: true
   become_user: "{{ username }}"
   ansible.builtin.service:
     name: autorestart
     state: stopped
 - name: start_service
-  become: false
+  become: true
   become_user: "{{ username }}"
   ansible.builtin.service:
     name: autorestart
