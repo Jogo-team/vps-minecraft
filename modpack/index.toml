@@ -17,12 +17,12 @@ metafile = true
 
 [[files]]
 file = "mods/ct-overhaul-village.pw.toml"
-hash = "56eca00b636da27a2bd4a06906f97058890c25725824f4e7854501fd7947ebe5"
+hash = "37a04672eb6c60dd5103b8f80566ff8a8b10e650eb00f2367bdf602401977343"
 metafile = true
 
 [[files]]
 file = "mods/fabric-api.pw.toml"
-hash = "5d55ebf01c451aaad25bf8751de6425c28ff29efe04bd7f46b8863a721234188"
+hash = "fb8d869693d3235ef75c600f277f57b810aa80ddd6ee2dad3a86cf0d0af230e1"
 metafile = true
 
 [[files]]
