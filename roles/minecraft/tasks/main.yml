@@ -29,3 +29,16 @@
       tags: reset
   tags:
     - reset
+- include_tasks: stop_service.yml
+  args:
+    apply:
+      tags: stop_service
+  tags:
+    - stop_service
+- include_tasks: start_service.yml
+  args:
+    apply:
+      tags: start_service
+  tags:
+    - start_service
+

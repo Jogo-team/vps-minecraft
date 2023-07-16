@@ -1,0 +1,6 @@
+---
+- name: start_service
+  ansible.builtin.systemd:
+    name: autorestart.service
+    state: started
+    scope: "user"
