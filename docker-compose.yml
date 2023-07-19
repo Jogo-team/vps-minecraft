@@ -38,5 +38,5 @@ services:
       - TZ=Europe/Paris
     volumes:
       - ./config_plex:/config
-      - /mnt/dde/Séries:/tv
+      - /mnt/dde/Series:/tv
       - /mnt/dde/Films:/movies
