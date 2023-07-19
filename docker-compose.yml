@@ -28,3 +28,11 @@ services:
       start_period: 1m
       interval: 1m
       retries: 20
+  plex:
+    image: linuxserver/plex:latest
+    container_name: plex
+    restart: unless-stopped
+    ports:
+      - 32400:32400
+    environment:
+      - TZ=Europe/Paris
