@@ -37,6 +37,6 @@ services:
     environment:
       - TZ=Europe/Paris
     volumes:
-      - /mnt/dde/config:/config
+      - ./config_plex:/config
       - /mnt/dde/Séries:/tv
       - /mnt/dde/Films:/movies
