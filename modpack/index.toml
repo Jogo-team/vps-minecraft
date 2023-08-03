@@ -57,7 +57,7 @@ metafile = true
 
 [[files]]
 file = "mods/nullscape.pw.toml"
-hash = "1d40c7d4c8240baf2560af94bb842e02f10039113feef13656a124d573fe54d0"
+hash = "e3ceea9c5a957480f08e758e865c0d100685e3d57d00c02857e49d0fd3b6fc4c"
 metafile = true
 
 [[files]]
