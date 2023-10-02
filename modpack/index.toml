@@ -62,7 +62,7 @@ metafile = true
 
 [[files]]
 file = "mods/sdlink.pw.toml"
-hash = "68ea15a4b41a2e4384b1942e1befb38b88d80f3bdf15b503f658450208a4f2a7"
+hash = "c8e08ba6de4192f0a659dfe78f174352b5ced47819609b7d1d1df8bc1dc9376a"
 metafile = true
 
 [[files]]
